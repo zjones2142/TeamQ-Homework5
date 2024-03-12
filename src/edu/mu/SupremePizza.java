@@ -1,22 +1,26 @@
 package edu.mu;
 import java.util.*;
-import edu.mu.pizzaEnums.*;
+import edu.mu.pizzaEnums.Toppings;
 
-public class VegetarianPizza extends AbstractPizza {
-	private static final double DEFAULT_PRICE = 1.50
-			;
-	public VegetarianPizza() {
+public class SupremePizza extends AbstractPizza{
+
+	private static final double DEFAULT_PRICE = 3.50;
+	
+	public SupremePizza() {
 		// TODO Auto-generated constructor stub
 		super();
 		toppingList.add(Toppings.TOMATO);
 		toppingList.add(Toppings.CHEESE);
 		toppingList.add(Toppings.BELL_PEPPER);
+		toppingList.add(Toppings.ITALIAN_SAUSAGE);
+		toppingList.add(Toppings.PEPPERONI);
 		toppingList.add(Toppings.BLACK_OLIVE);
 		toppingList.add(Toppings.MUSHROOM);
 		priceWithoutToppings = DEFAULT_PRICE;
 		
 	}
-	public VegetarianPizza(VegetarianPizza pizza) {
+
+	public SupremePizza(SupremePizza pizza) {
 		this();
 		this.toppingList = new ArrayList<>(pizza.getToppingList());
 		this.priceWithoutToppings = pizza.getPriceWithoutToppings();
@@ -25,7 +29,7 @@ public class VegetarianPizza extends AbstractPizza {
 		this.cookingStrategy = pizza.getCookingStrategy();
 		this.cookingPrice = pizza.getCookingPrice();
 	}
-
+	
 	@Override
 	protected double addToppingsToPrice(double priceWithoutToppings) {
 		// TODO Auto-generated method stub
