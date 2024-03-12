@@ -3,8 +3,8 @@ import java.util.*;
 import edu.mu.pizzaEnums.*;
 
 public class VegetarianPizza extends AbstractPizza {
-	private static final double DEFAULT_PRICE = 1.50
-			;
+	private static final double DEFAULT_PRICE = 1.50;
+	
 	public VegetarianPizza() {
 		// TODO Auto-generated constructor stub
 		super();
