@@ -2,6 +2,8 @@ package edu.mu;
 
 import java.util.*;
 
+import edu.mu.pizzaEnums.Toppings;
+
 public abstract class AbstractPizza {
 
 	protected List<Toppings> toppingList;
