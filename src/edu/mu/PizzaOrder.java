@@ -26,7 +26,10 @@ public class PizzaOrder {
 	}
 	
 	public void printPizzaOrderCart(int orderID) {
-		
+		System.out.println("Pizza Order List:");
+		for(AbstractPizza pizza : pizzaOrderList){
+			System.out.println(pizza.toString());
+		}
 	}
 	
 	public AbstractPizza getPizzaByOrderID(int orderID) {
