@@ -34,6 +34,12 @@ public class PizzaOrder {
 	}
 	
 	public AbstractPizza getPizzaByOrderID(int orderID) {
+		for(AbstractPizza pizza : pizzaOrderList){
+			if(pizza.getPizzaOrderID() == orderID){
+				return pizza;
+			}
+		}
+		System.out.println("Pizza order " + orderID + " not found");
 		return null;
 	}
 	
