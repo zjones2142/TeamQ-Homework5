@@ -94,15 +94,35 @@ public class PizzaOrder {
 	}
 	
 	public boolean selectCookingStrategyByPizzaOrderID(int orderID, CookingStyleType cookingStrategyType) {
-		for (AbstractPizza pizza : this.pizzaOrderList) {
-			if(pizza.getPizzaOrderID() == orderID) {
-				this.cookingStrategy = pizza.getCookingStrategy();
-				this.cookingStrategy.cook(pizza);
-				return true;
-			}
-		}
-		return false;
+	    for (AbstractPizza pizza : pizzaOrderList) {
+	        if (pizza.getPizzaOrderID() == orderID) {
+	            ICookingStrategy strategy = null; // Initialize strategy reference
+
+	            // Determine the correct cooking strategy based on the cookingStrategyType
+	            switch (cookingStrategyType) {
+	                case MICROWAVE:
+	                    strategy = new MicrowaveCookingStrategy();
+	                    break;
+	                case CONVENTIONAL_OVEN:
+	                    strategy = new ConventionalOvenCookingStrategy();
+	                    break;
+	                case BRICK_OVEN:
+	                    strategy = new BrickOvenCookingStrategy();
+	                    break;
+	                default:
+	                    return false; // If the cooking strategy type is unrecognized, return false.
+	            }
+
+	            if (strategy != null) {
+	                pizza.setCookingStrategy(strategy); // Assign the strategy to the pizza
+	                strategy.cook(pizza); // Now we can safely call cook method since strategy is not null
+	                return true; // Cooking strategy successfully assigned and executed
+	            }
+	        }
+	    }
+	    return false; // If no pizza with the given ID was found in the order
 	}
+
 
 	//get pizza order list
 	public List<AbstractPizza> getPizzaOrderList(){
