@@ -27,7 +27,10 @@ public class PizzaOrder {
 	}
 	
 	public void printPizzaOrderCart(int orderID) {
-		
+		System.out.println("Pizza Order List:");
+		for(AbstractPizza pizza : pizzaOrderList){
+			System.out.println(pizza.toString());
+		}
 	}
 	
 	public AbstractPizza getPizzaByOrderID(int orderID) {
@@ -51,7 +54,14 @@ public class PizzaOrder {
 	}
 	
 	public double checkout() throws Exception {
-		return 0;
+		if (isThereAnyUncookedPizza()) {
+            throw new Exception("There are uncooked pizzas in your order.");
+        }
+        double total = 0;
+        for (AbstractPizza pizza : pizzaOrderList) {
+            total += pizza.getTotalPrice();
+        }
+        return total;
 	}
 	
 	public boolean selectCookingStrategyByPizzaOrderID(int orderID, CookingStyleType cookingStrategyType) {
