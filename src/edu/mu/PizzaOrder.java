@@ -54,7 +54,14 @@ public class PizzaOrder {
 	}
 	
 	public double checkout() throws Exception {
-		return 0;
+		if (isThereAnyUncookedPizza()) {
+            throw new Exception("There are uncooked pizzas in your order.");
+        }
+        double total = 0;
+        for (AbstractPizza pizza : pizzaOrderList) {
+            total += pizza.getTotalPrice();
+        }
+        return total;
 	}
 	
 	public boolean selectCookingStrategyByPizzaOrderID(int orderID, CookingStyleType cookingStrategyType) {
