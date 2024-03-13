@@ -44,8 +44,7 @@ public class PizzaOrder {
 	}
 	
 	public boolean addPizzaToCart(PizzaType pizzaType) {
-		PizzaCookingFactory pizza = new PizzaCookingFactory();
-		AbstractPizza pizza1 = pizza.createPizza(pizzaType);
+		AbstractPizza pizza1 = pizzaFactory.createPizza(pizzaType);
 		pizzaOrderList.add(pizza1);
 		return true;
 	}
