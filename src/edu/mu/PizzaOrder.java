@@ -103,4 +103,9 @@ public class PizzaOrder {
 		}
 		return false;
 	}
+
+	//get pizza order list
+	public List<AbstractPizza> getPizzaOrderList(){
+		return this.pizzaOrderList;
+	}
 }
