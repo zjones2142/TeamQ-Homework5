@@ -50,7 +50,12 @@ public class PizzaOrder {
 	}
 	
 	public boolean isThereAnyUncookedPizza() {
-		return false;
+		for (AbstractPizza pizza : pizzaOrderList) {
+            if (pizza.getCookingStrategy() == null) {
+                return true;
+            }
+        }
+        return false;
 	}
 	
 	public double checkout() throws Exception {
