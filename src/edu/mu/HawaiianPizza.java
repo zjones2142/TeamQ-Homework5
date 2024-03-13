@@ -31,7 +31,7 @@ public class HawaiianPizza extends AbstractPizza{
 		// TODO Auto-generated method stub
 		double total = priceWithoutToppings;
 		for(Toppings topping : toppingList) {
-			total = total + topping.getToppingPrice(topping);
+			total = total + topping.getPrice();
 		}
 		return total;
 	}

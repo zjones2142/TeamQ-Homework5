@@ -29,7 +29,7 @@ public class MargheritaPizza extends AbstractPizza{
 	protected double addToppingsToPrice(double priceWithoutToppings) {
 		double total = priceWithoutToppings; //initial price without toppings
 		for(Toppings topping : toppingList) {
-			total += topping.getToppingPrice(topping); //add the price for each topping
+			total += topping.getPrice(); //add the price for each topping
 		}
 		return total;
 	}
