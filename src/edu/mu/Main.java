@@ -36,7 +36,7 @@ public class Main {
 		}
 		
 		
-		System.out.println("How would you like it cooked?\n1. Brick Oven\n2. Conventional Oven\n 3. Microwave");
+		System.out.println("How would you like it cooked?\n1. Brick Oven\n2. Conventional Oven\n3. Microwave");
 		int style = scanner.nextInt();
 
 		//select cooking style for pizza on the cart
