@@ -10,7 +10,8 @@ public class PizzaOrder {
 	private List<AbstractPizza> pizzaOrderList; 
 
 	public PizzaOrder() {
-		
+		this.pizzaFactory = new PizzaCookingFactory();
+		this.pizzaOrderList = new ArrayList<>();
 	}
 	
 	public void printListOfToppingsByPizzaOrderID(int orderID) {
@@ -39,7 +40,6 @@ public class PizzaOrder {
 	
 	public boolean isThereAnyUncookedPizza() {
 		return false;
-		
 	}
 	
 	public double checkout() throws Exception {
@@ -47,6 +47,15 @@ public class PizzaOrder {
 	}
 	
 	public boolean selectCookingStrategyByPizzaOrderID(int orderID, CookingStyleType cookingStrategyType) {
+		for (AbstractPizza pizza : this.pizzaOrderList) {
+			if(pizza.getPizzaOrderID() == orderID) {
+				this.cookingStrategy = pizza.getCookingStrategy();
+				this.cookingStrategy.cook(pizza);
+				return true;
+			}
+			else return false;
+		}
+		
 		return false;
 	}
 }

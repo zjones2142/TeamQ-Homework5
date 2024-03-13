@@ -14,8 +14,6 @@ public abstract class AbstractPizza {
 	protected double cookingPrice;
 	
 	
-	//XXX: pdf says, "constructor should be implemented to instantiate the toppingList as an ArrayList"
-	//XXX: may need fix
 	protected AbstractPizza() {
 		toppingList = new ArrayList<>();
 		pizzaOrderID = ++orderIDCounter;
