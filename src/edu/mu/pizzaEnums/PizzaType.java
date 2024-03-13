@@ -12,7 +12,7 @@ public enum PizzaType {
 		this.toppingPrice = toppingPrice;
 	}
 	
-	public double getToppingPrice() {
+	public double getToppingPrice(Toppings topping) {
 		return toppingPrice;
 	}
 }
