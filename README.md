@@ -1,9 +1,9 @@
 # TeamQ-Homework5
-###Project Description:
+### Project Description:
 
 Pizza restaurant automation - implements cooking, topping choice, default pizza varieties, and price calculation.
 
-###Contributers:
+### Contributers:
 
 **_Name | GitID_**
 
