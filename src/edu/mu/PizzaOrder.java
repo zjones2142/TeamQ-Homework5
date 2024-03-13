@@ -61,9 +61,7 @@ public class PizzaOrder {
 				this.cookingStrategy.cook(pizza);
 				return true;
 			}
-			else return false;
 		}
-		
 		return false;
 	}
 }
