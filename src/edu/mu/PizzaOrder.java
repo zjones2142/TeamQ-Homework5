@@ -44,9 +44,11 @@ public class PizzaOrder {
 	}
 	
 	public boolean addPizzaToCart(PizzaType pizzaType) {
-		AbstractPizza pizza1 = pizzaFactory.createPizza(pizzaType);
-		pizzaOrderList.add(pizza1);
-		return true;
+		AbstractPizza pizza = pizzaFactory.createPizza(pizzaType);
+		int b4size = pizzaOrderList.size();
+		pizzaOrderList.add(pizza);
+		if(b4size == pizzaOrderList.size()) return false;
+		else return true;
 	}
 	
 	public boolean addNewToppingToPizza(int orderID, Toppings topping) {
