@@ -51,11 +51,25 @@ public class PizzaOrder {
 	}
 	
 	public boolean addNewToppingToPizza(int orderID, Toppings topping) {
-		return false;
+		for (AbstractPizza pizza : pizzaOrderList) {
+            if (pizza.getPizzaOrderID() == orderID && !pizza.getToppingList().contains(topping)) {
+                pizza.getToppingList().add(topping);
+                pizza.updatePizzaPrice();
+                return true;
+            }
+        }
+        return false;
 	}
 	
 	public boolean removeToppingFromPizza(int orderID, Toppings topping) {
-		return false;
+		for (AbstractPizza pizza : pizzaOrderList) {
+            if (pizza.getPizzaOrderID() == orderID && pizza.getToppingList().contains(topping)) {
+                pizza.getToppingList().remove(topping);
+                pizza.updatePizzaPrice();
+                return true;
+            }
+        }
+        return false;
 	}
 	
 	public boolean isThereAnyUncookedPizza() {
